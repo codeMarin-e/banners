@@ -2,6 +2,5 @@
 use App\Http\Controllers\BannerController;
 use App\Models\Banner;
 
-Route::get('/banners/{banner}', [BannerController::class, 'get'])
-    ->middleware(\App\Http\Middleware\SlugParameters::class.":".Banner::class.',banner|chBanner')
+Route::get('/banners/{chBanner}', [BannerController::class, 'get'])
     ->name('banner.get');
