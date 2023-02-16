@@ -1,6 +1,7 @@
 <?php
     namespace Marinar\Banners\Database\Seeders;
 
+    use App\Models\BannerPosition;
     use Illuminate\Database\Seeder;
     use Marinar\Banners\MarinarBanners;
     use Spatie\Permission\Models\Permission;
@@ -24,6 +25,9 @@
 
         public function clearMe() {
             $this->refComponents->task("Clear DB", function() {
+                foreach(BannerPosition::get() as $bannerPosition) {
+                    $bannerPosition->delete();
+                }
                 Permission::whereIn('name', [
                     'banners.view',
                     'banner.create',
