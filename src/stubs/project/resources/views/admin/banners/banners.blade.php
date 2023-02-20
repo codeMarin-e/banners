@@ -186,6 +186,7 @@
                                        title="@lang('admin/banners/banners.move_up')"><i class="fa fa-arrow-up"></i></a>
                                 @endif
                             </td>
+                            {{-- @HOOK_AFTER_MOVE--}}
 
                             {{--    DELETE    --}}
                             <td class="text-center">
