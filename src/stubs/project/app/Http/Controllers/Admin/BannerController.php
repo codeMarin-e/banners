@@ -94,7 +94,7 @@ class BannerController extends Controller {
         $chBanner->update( $validatedData );
         $chBanner->setAVars($validatedData['add']);
         $chBanner->reAttachAndOrder( $validatedData['pictures'] ?? [], 'pictures' );
-        $chBanner->setUri($validatedData['uri']['slug'], $validatedData['uri']['type'], $validatedData['uri']);
+        $chBanner->setUri($validatedData['uri']['slug'], $validatedData['uri']['pointable_type'], $validatedData['uri']['attributes']);
 
         // @HOOK_UPDATE_END
 
