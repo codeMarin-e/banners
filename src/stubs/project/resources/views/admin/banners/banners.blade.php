@@ -55,6 +55,8 @@
             </a>
         @endcan
 
+        {{-- @HOOK_AFTER_CREATE --}}
+
         <x-admin.box_messages />
 
         <div class="table-responsive rounded ">
@@ -208,7 +210,7 @@
                     {{-- END BANNERS --}}
                 @empty
                     <tr>
-                        <td colspan="4">@lang('admin/banners/banners.no_banner_positions')</td>
+                        <td colspan="100%">@lang('admin/banners/banners.no_banner_positions')</td>
                     </tr>
                 @endforelse
                 </tbody>

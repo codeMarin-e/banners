@@ -50,8 +50,7 @@
                             </select>
                         </div>
                     </div>
-
-                    {{-- @HOOK_AFTER_POSTION --}}
+                    {{-- @HOOK_AFTER_POSITION --}}
 
                     <div class="form-group row">
                         <label for="{{$inputBag}}[name]"
@@ -121,11 +120,15 @@
                                         name='create'>@lang('admin/banners/banner.create')</button>
                             @endcan
                         @endisset
+
+                        {{-- @HOOK_AFTER_BUTTONS --}}
+
                         <a class='btn btn-warning'
                            href="{{ route("{$route_namespace}.banners.index") }}"
                         >@lang('admin/banners/banner.cancel')</a>
                     </div>
 
+                    {{-- @HOOK_ADDON_BUTTONS --}}
                 </form>
             </div>
         </div>

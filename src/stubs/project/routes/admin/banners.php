@@ -19,6 +19,9 @@ Route::group([
         Route::get('create', 'create')->name('create')->middleware('can:create,' . BannerPosition::class);
         Route::get('{chBannerPosition}/edit', 'edit')->name('edit');
         Route::get('{chBannerPosition}', 'edit')->name('show');
+
+        // @HOOK_BANNER_POSITIONS_ROUTES_MODEL
+
         Route::patch('{chBannerPosition}', 'update')->name('update')->middleware('can:update,chBannerPosition');
         Route::delete('{chBannerPosition}', 'destroy')->name('destroy')->middleware('can:delete,chBannerPosition');
 
@@ -34,6 +37,9 @@ Route::group([
         Route::get('{chBanner}/edit', 'edit')->name('edit');
         Route::get('{chBanner}', 'edit')->name('show');
         Route::get('{chBanner}/move/{direction}', "move")->name('move')->middleware('can:update,chBanner');
+
+        // @HOOK_BANNERS_ROUTES_MODEL
+
         Route::patch('{chBanner}', 'update')->name('update')->middleware('can:update,chBanner');
         Route::delete('{chBanner}', 'destroy')->name('destroy')->middleware('can:delete,chBanner');
 

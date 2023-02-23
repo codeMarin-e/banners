@@ -38,10 +38,10 @@
         //END ORDERABLE
 
         //URIABLE
-        public function defaultUri($language = null, $site_id = null, $prepareLevel = null) { //just for default
+        public function defaultUri($language = null, $site_id = null, $prepareLevel = null, $additionals = []) { //just for default
             return 'banners/'.$this->id;
         }
-        public function prepareSlug($slug, $prepareLevel = null) {
+        public function prepareSlug($slug, $prepareLevel = null, $additionals = []) {
             return $slug;
         }
         use Uriable;
