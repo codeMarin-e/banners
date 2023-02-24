@@ -123,6 +123,7 @@ class BannerRequest extends FormRequest
 
         if(is_null($key)) {
             \App\Http\Requests\ActiviableRequest::validateData($validatedData);
+            \App\Models\Uri::validated($validatedData);
 
             // @HOOK_REQUEST_AFTER_VALIDATED
 
