@@ -82,7 +82,7 @@ class BannerRequest extends FormRequest
         $rules = array_merge(
             $rules,
             \App\Models\Uri::validationRules('banner', $chBanner, excludeTypes: ['default']),
-            \App\Http\Requests\ActiviableRequest::validation_rules(),
+            \App\Http\Requests\Admin\ActiviableRequest::validation_rules(),
         );
 
         // @HOOK_REQUEST_RULES
@@ -106,9 +106,11 @@ class BannerRequest extends FormRequest
         $this->errorBag = $inputBag;
         $inputs = $this->all();
         if(!isset($inputs[$inputBag])) {
-            throw new ValidationException(trans('admin/banners/validation.no_inputs') );
+            throw ValidationException::withMessages([
+                $inputBag => trans('admin/banners/validation.no_inputs'),
+            ])->errorBag($inputBag);;
         }
-        \App\Http\Requests\ActiviableRequest::validation_prework($inputs);
+        \App\Http\Requests\Admin\ActiviableRequest::validation_prework($inputs);
         // @HOOK_REQUEST_PREPARE
 
         $this->replace($inputs);
@@ -122,7 +124,7 @@ class BannerRequest extends FormRequest
         // @HOOK_REQUEST_VALIDATED
 
         if(is_null($key)) {
-            \App\Http\Requests\ActiviableRequest::validateData($validatedData);
+            \App\Http\Requests\Admin\ActiviableRequest::validateData($validatedData);
             \App\Models\Uri::validated($validatedData);
 
             // @HOOK_REQUEST_AFTER_VALIDATED
