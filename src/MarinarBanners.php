@@ -3,6 +3,7 @@
 
     use Marinar\Banners\Database\Seeders\MarinarBannersInstallSeeder;
 
+    
     class MarinarBanners {
 
         public static function getPackageMainDir() {
